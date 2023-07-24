@@ -1,0 +1,26 @@
+public class Main {
+    public static void main(String[] args) {
+        Person vlad = new Person("Vlad", 35);
+        Person Mariya = new Person("Mariya", 30);
+        Person boris = new Person("Boris", 10);
+        Person olga = new Person("Olga", 8);
+        Person timofei = new Person("Timofei", 5);
+
+        vlad.addChild(boris);
+        vlad.addChild(olga);
+        olga.addChild(timofei);
+
+        FamilyTree familyTree = new FamilyTree(vlad);
+        GenealogyResearch genealogyResearch = new GenealogyResearch(familyTree);
+
+        List<Person> children = genealogyResearch.getAllChildren(vlad);
+        for (Person child : children) {
+            System.out.println(child.getName());
+        }
+
+        List<Person> descendants = genealogyResearch.getAllDescendants(vlad);
+        for (Person descendant : descendants) {
+            System.out.println(descendant.getName());
+        }
+    }
+}
